@@ -1,5 +1,7 @@
-import { getHomeVideo } from '@/lib/services/home';
 import Image from 'next/image';
+
+import { BaseLayout } from '@/components/layout/base-layout';
+import { getHomeVideo } from '@/lib/services/home';
 
 export default async function Home() {
     const videoOrGif = await getHomeVideo();
@@ -7,25 +9,27 @@ export default async function Home() {
     const isVideo = videoOrGif.mimeType.includes('video');
 
     return (
-        <div className="flex flex-col w-full h-full bg-gray-800">
-            {isVideo ? (
-                <div className="relative w-full h-screen">
-                    <video
-                        src={videoOrGif.url}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover"
-                    />
-                </div>
-            ) : (
-                <div className="relative w-full h-screen">
-                    <Image src={videoOrGif.url} fill alt="Home Background" unoptimized />;
-                </div>
-            )}
+        <BaseLayout>
+            <main className="flex flex-col">
+                <div className="relative w-full min-h-screen">
+                    {isVideo ? (
+                        <video
+                            src={videoOrGif.url}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="absolute inset-0 w-full h-full object-cover"
+                        />
+                    ) : (
+                        <Image src={videoOrGif.url} fill alt="Home Background" unoptimized />
+                    )}
 
-            <div className="h-64">Outros conteúdos aqui</div>
-        </div>
+                    <div className="absolute left-32 bottom-36">
+                        <h1 className="text-4xl">PRODUTOR AUDIOVISUAL</h1>
+                    </div>
+                </div>
+            </main>
+        </BaseLayout>
     );
 }

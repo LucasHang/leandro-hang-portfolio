@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 
-import { Layout } from '@/components/layout';
 import { siteConfig } from '@/lib/config/site-config';
 
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const modernSans = localFont({ src: './fonts/ModernSans-Light.otf', display: 'swap' });
 
 export const metadata: Metadata = {
     title: {
@@ -32,9 +31,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="pt">
-            <body className={inter.className}>
-                <Layout>{children}</Layout>
-            </body>
+            <body className={`${modernSans.className} bg-gray-700`}>{children}</body>
         </html>
     );
 }
