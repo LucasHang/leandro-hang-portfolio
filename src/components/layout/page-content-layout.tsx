@@ -10,7 +10,7 @@ interface PageContentLayoutProps {
 
 export function PageContentLayout({ title, children }: PageContentLayoutProps) {
     return (
-        <main className="relative h-site-content pt-site-header w-full">
+        <main className="relative min-h-screen w-full">
             <PageContentTitle title={title} />
 
             {children}

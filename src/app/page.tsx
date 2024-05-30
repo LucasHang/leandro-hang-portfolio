@@ -13,30 +13,36 @@ export default async function Home() {
 
     return (
         <BaseLayout>
-            <main className="flex flex-col">
-                <div className="relative w-full min-h-screen">
-                    {isVideo ? (
-                        <video
-                            src={videoOrGif.url}
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="absolute inset-0 w-full h-full object-cover object-center"
-                        />
-                    ) : (
-                        <Image
-                            src={videoOrGif.url}
-                            fill
-                            alt="Home Background"
-                            unoptimized
-                            className="object-cover object-center"
-                        />
-                    )}
+            <div className="absolute inset-0">
+                {isVideo ? (
+                    <video
+                        src={videoOrGif.url}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover object-center"
+                    />
+                ) : (
+                    <Image
+                        src={videoOrGif.url}
+                        fill
+                        alt="Home Background"
+                        unoptimized
+                        className="object-cover object-center"
+                    />
+                )}
 
-                    <div className="absolute left-32 bottom-36">
-                        <h1 className="text-4xl">PRODUTOR AUDIOVISUAL</h1>
-                    </div>
+                <div className="absolute left-32 bottom-36">
+                    <h1 className="text-4xl">PRODUTOR AUDIOVISUAL</h1>
+                </div>
+            </div>
+
+            <main className="flex flex-col pt-site-content">
+                <div className="grid grid-cols-2 gap-1">
+                    {new Array(6).fill(1).map((_, i) => (
+                        <div key={i} className="h-96 w-full bg-gray-800" />
+                    ))}
                 </div>
             </main>
 

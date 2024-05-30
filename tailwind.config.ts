@@ -17,6 +17,7 @@ const config: Config = {
             },
             padding: {
                 'site-header': 'var(--site-header-height)',
+                'site-content': 'calc(100vh - var(--site-header-height))',
             },
         },
     },
