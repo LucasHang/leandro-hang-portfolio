@@ -9,7 +9,7 @@ export function HeaderNav() {
     const pathname = usePathname();
 
     return (
-        <>
+        <nav className="flex items-center gap-14">
             <Link href="/" className={cn({ underline: pathname === '/' })}>
                 INÍCIO
             </Link>
@@ -25,6 +25,6 @@ export function HeaderNav() {
             <Link href="/bio" className={cn({ underline: pathname === '/bio' })}>
                 BIO
             </Link>
-        </>
+        </nav>
     );
 }

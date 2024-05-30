@@ -1,10 +1,13 @@
+import { Instagram } from 'lucide-react';
 import Image from 'next/image';
 
+import { DeveloperCredits } from '@/components/developer-credits';
 import { BaseLayout } from '@/components/layout/base-layout';
-import { getHomeVideo } from '@/lib/services/home';
+import { siteConfig } from '@/lib/config/site-config';
+import { getHomeInfo } from '@/lib/services/home';
 
 export default async function Home() {
-    const videoOrGif = await getHomeVideo();
+    const { video: videoOrGif, footerImage } = await getHomeInfo();
 
     const isVideo = videoOrGif.mimeType.includes('video');
 
@@ -19,10 +22,16 @@ export default async function Home() {
                             loop
                             muted
                             playsInline
-                            className="absolute inset-0 w-full h-full object-cover"
+                            className="absolute inset-0 w-full h-full object-cover object-center"
                         />
                     ) : (
-                        <Image src={videoOrGif.url} fill alt="Home Background" unoptimized />
+                        <Image
+                            src={videoOrGif.url}
+                            fill
+                            alt="Home Background"
+                            unoptimized
+                            className="object-cover object-center"
+                        />
                     )}
 
                     <div className="absolute left-32 bottom-36">
@@ -30,6 +39,33 @@ export default async function Home() {
                     </div>
                 </div>
             </main>
+
+            <div className="relative w-full h-[50vh] max-h-[420px]">
+                <Image
+                    src={footerImage.url}
+                    alt="Home Footer Image"
+                    fill
+                    className="object-cover object-center"
+                />
+            </div>
+
+            <footer className="flex flex-col">
+                <div className="flex items-center justify-center gap-4 h-16 bg-black text-white">
+                    <span>{siteConfig.personal.name}</span>
+                    <span>|</span>
+                    <span>{siteConfig.contact.phoneNumber}</span>
+                    <span>|</span>
+                    <span>{siteConfig.contact.email}</span>
+                </div>
+
+                <div className="h-52 bg-white text-black flex items-center justify-center">
+                    <a href={siteConfig.links.instagram} target="_blank" rel="noreferrer">
+                        <Instagram className="h-4 w-4" />
+                    </a>
+                </div>
+            </footer>
+
+            <DeveloperCredits />
         </BaseLayout>
     );
 }

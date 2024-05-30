@@ -1,9 +1,14 @@
-import { Header } from '../header/header';
+import { Header, HeaderProps } from '../header/header';
 
-export function BaseLayout({ children }: { children: React.ReactNode }) {
+interface BaseLayoutProps {
+    children: React.ReactNode;
+    headerProps?: HeaderProps;
+}
+
+export function BaseLayout({ children, headerProps }: BaseLayoutProps) {
     return (
         <div className="flex flex-col w-full min-h-screen">
-            <Header />
+            <Header {...headerProps} />
 
             {children}
         </div>

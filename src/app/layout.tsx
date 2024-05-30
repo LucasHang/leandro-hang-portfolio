@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="pt">
-            <body className={`${modernSans.className} bg-gray-700`}>{children}</body>
+            <body className={`${modernSans.className}`}>{children}</body>
         </html>
     );
 }

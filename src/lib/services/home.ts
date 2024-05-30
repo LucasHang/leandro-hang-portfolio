@@ -1,27 +1,36 @@
 import graphcms from './graph-client';
 
-interface HomeVideo {
-    url: string;
-    mimeType: string;
+interface HomeInfo {
+    video: { url: string; mimeType: string };
+    footerImage: {
+        url: string;
+        width: number;
+        height: number;
+    };
 }
 
-interface HomeVideoData {
-    homeVideos: [{ video: HomeVideo }];
+interface HomeInfoData {
+    homeInfos: HomeInfo[];
 }
 
-export async function getHomeVideo(): Promise<HomeVideo> {
-    const homeVideoData = await graphcms.request<HomeVideoData>(
+export async function getHomeInfo(): Promise<HomeInfo> {
+    const homeInfosData = await graphcms.request<HomeInfoData>(
         `
-            query HomeVideo {
-                homeVideos {
+            query HomeInfo {
+                homeInfos {
                     video {
                         mimeType
                         url
+                    }
+                    footerImage {
+                        url
+                        width
+                        height
                     }
                 }
             }
         `,
     );
 
-    return homeVideoData.homeVideos[0].video;
+    return homeInfosData.homeInfos[0];
 }
