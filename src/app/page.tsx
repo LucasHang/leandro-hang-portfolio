@@ -2,6 +2,7 @@ import { Instagram } from 'lucide-react';
 import Image from 'next/image';
 
 import { Art } from '@/components/art/art';
+import { ArtsGallery } from '@/components/art/gallery';
 import { DeveloperCredits } from '@/components/developer-credits';
 import { BaseLayout } from '@/components/layout/base-layout';
 import { siteConfig } from '@/lib/config/site-config';
@@ -19,13 +20,11 @@ export default async function Home() {
             <div className="absolute inset-0">
                 {isVideo ? (
                     <video
-                        preload="metadata"
                         src={videoOrGif.url}
                         autoPlay
                         loop
                         muted
                         playsInline
-                        poster={videoOrGif.blured ? videoOrGif.blured.url : undefined}
                         className="absolute inset-0 w-full h-full object-cover object-center"
                     />
                 ) : (
@@ -46,11 +45,7 @@ export default async function Home() {
             </div>
 
             <main className="flex flex-col pt-site-content">
-                <div className="row-1 gap-1 my-1 md:columns-2 xl:columns-3">
-                    {homeArts.map(art => {
-                        return <Art key={art.slug} art={art} />;
-                    })}
-                </div>
+                <ArtsGallery arts={homeArts} useLightBox={false} />
 
                 <div className="relative w-full h-[50vh] max-h-[420px]">
                     <Image
