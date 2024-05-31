@@ -1,7 +1,6 @@
 import { Instagram } from 'lucide-react';
 import Image from 'next/image';
 
-import { Art } from '@/components/art/art';
 import { ArtsGallery } from '@/components/art/gallery';
 import { DeveloperCredits } from '@/components/developer-credits';
 import { BaseLayout } from '@/components/layout/base-layout';
@@ -44,20 +43,20 @@ export default async function Home() {
                 </div>
             </div>
 
-            <main className="flex flex-col pt-site-content">
+            <main className="flex flex-col pt-site-content my-1">
                 <ArtsGallery arts={homeArts} useLightBox={false} />
-
-                <div className="relative w-full h-[50vh] max-h-[420px]">
-                    <Image
-                        src={footerImage.url}
-                        alt="Home Footer Image"
-                        fill
-                        placeholder="blur"
-                        blurDataURL={footerImage.blured ? footerImage.blured.url : footerImage.url}
-                        className="object-cover object-center"
-                    />
-                </div>
             </main>
+
+            <div className="relative w-full h-[50vh] max-h-[420px]">
+                <Image
+                    src={footerImage.url}
+                    alt="Home Footer Image"
+                    fill
+                    placeholder="blur"
+                    blurDataURL={footerImage.blured ? footerImage.blured.url : footerImage.url}
+                    className="object-cover object-center"
+                />
+            </div>
 
             <footer className="flex flex-col">
                 <div className="flex items-center justify-center gap-4 min-h-14 py-2 bg-black text-white flex-wrap">
