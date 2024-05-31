@@ -1,13 +1,16 @@
 import { Instagram } from 'lucide-react';
 import Image from 'next/image';
 
+import { Art } from '@/components/art/art';
 import { DeveloperCredits } from '@/components/developer-credits';
 import { BaseLayout } from '@/components/layout/base-layout';
 import { siteConfig } from '@/lib/config/site-config';
-import { getHomeInfo } from '@/lib/services/home';
+import { getHomeArts, getHomeInfo } from '@/lib/services/home';
 
 export default async function Home() {
-    const { video: videoOrGif, footerImage } = await getHomeInfo();
+    const [homeInfo, homeArts] = await Promise.all([getHomeInfo(), getHomeArts()]);
+
+    const { video: videoOrGif, footerImage } = homeInfo;
 
     const isVideo = videoOrGif.mimeType.includes('video');
 
@@ -16,11 +19,13 @@ export default async function Home() {
             <div className="absolute inset-0">
                 {isVideo ? (
                     <video
+                        preload="metadata"
                         src={videoOrGif.url}
                         autoPlay
                         loop
                         muted
                         playsInline
+                        poster={videoOrGif.blured ? videoOrGif.blured.url : undefined}
                         className="absolute inset-0 w-full h-full object-cover object-center"
                     />
                 ) : (
@@ -29,34 +34,38 @@ export default async function Home() {
                         fill
                         alt="Home Background"
                         unoptimized
+                        placeholder="blur"
+                        blurDataURL={videoOrGif.blured ? videoOrGif.blured.url : videoOrGif.url}
                         className="object-cover object-center"
                     />
                 )}
 
-                <div className="absolute left-32 bottom-36">
+                <div className="absolute md:left-32 left-20 bottom-36">
                     <h1 className="text-4xl">PRODUTOR AUDIOVISUAL</h1>
                 </div>
             </div>
 
             <main className="flex flex-col pt-site-content">
-                <div className="grid grid-cols-2 gap-1">
-                    {new Array(6).fill(1).map((_, i) => (
-                        <div key={i} className="h-96 w-full bg-gray-800" />
-                    ))}
+                <div className="row-1 gap-1 my-1 md:columns-2 xl:columns-3">
+                    {homeArts.map(art => {
+                        return <Art key={art.slug} art={art} />;
+                    })}
+                </div>
+
+                <div className="relative w-full h-[50vh] max-h-[420px]">
+                    <Image
+                        src={footerImage.url}
+                        alt="Home Footer Image"
+                        fill
+                        placeholder="blur"
+                        blurDataURL={footerImage.blured ? footerImage.blured.url : footerImage.url}
+                        className="object-cover object-center"
+                    />
                 </div>
             </main>
 
-            <div className="relative w-full h-[50vh] max-h-[420px]">
-                <Image
-                    src={footerImage.url}
-                    alt="Home Footer Image"
-                    fill
-                    className="object-cover object-center"
-                />
-            </div>
-
             <footer className="flex flex-col">
-                <div className="flex items-center justify-center gap-4 h-16 bg-black text-white">
+                <div className="flex items-center justify-center gap-4 min-h-14 py-2 bg-black text-white flex-wrap">
                     <span>{siteConfig.personal.name}</span>
                     <span>|</span>
                     <span>{siteConfig.contact.phoneNumber}</span>
