@@ -4,6 +4,8 @@ const nextConfig = {
         remotePatterns: [
             { protocol: 'https', hostname: 'media.graphcms.com' },
             { protocol: 'https', hostname: 'media.graphassets.com' },
+            { protocol: 'https', hostname: 'www.youtube.com' },
+            { protocol: 'https', hostname: 'img.youtube.com' },
         ],
     },
 };

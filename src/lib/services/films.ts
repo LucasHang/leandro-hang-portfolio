@@ -19,6 +19,7 @@ export async function getFilmsArts(): Promise<ArtEntity[]> {
                             width
                             height
                         }
+                        youtubeUrl
                     }
                 }
             }

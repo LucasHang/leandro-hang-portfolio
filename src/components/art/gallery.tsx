@@ -32,12 +32,12 @@ export function ArtsGallery({ arts, useLightBox }: ArtsGalleryProps) {
             <PhotoAlbum
                 layout="rows"
                 photos={arts.map(a => ({
-                    src: a.url,
+                    src: a.youtubeUrl || a.url,
                     width: a.width || a.blured?.width || 16,
                     height: a.height || a.blured?.height || 9,
                     key: a.slug,
                     alt: a.name,
-                    blurDataURL: a.blured?.url,
+                    blurDataURL: a.blured?.url || a.url,
                     // sizes: ['(min-width: 480px) 100vw,(min-width: 1024px) 50vw,100vw'],
                 }))}
                 spacing={4}
@@ -50,7 +50,7 @@ export function ArtsGallery({ arts, useLightBox }: ArtsGalleryProps) {
                 renderPhoto={props => {
                     const respectiveArt = arts[props.layout.index];
 
-                    if (respectiveArt.mimeType.includes('video')) {
+                    if (respectiveArt.mimeType.includes('video') || respectiveArt.youtubeUrl) {
                         return (
                             <VideoArt
                                 key={props.photo.key}
@@ -72,7 +72,7 @@ export function ArtsGallery({ arts, useLightBox }: ArtsGalleryProps) {
             {useLightBox && (
                 <FsLightbox
                     toggler={lightBoxController.toggler}
-                    sources={arts.map(a => a.url)}
+                    sources={arts.map(a => a.youtubeUrl || a.url)}
                     slide={lightBoxController.slide}
                 />
             )}

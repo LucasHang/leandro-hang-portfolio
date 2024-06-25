@@ -15,11 +15,19 @@ interface VideoArtProps {
 export function VideoArt({ src, art, onClick, style }: VideoArtProps) {
     const [showControls, setShowControls] = useState(false);
 
+    const videoId = art.youtubeUrl ? art.youtubeUrl.split('v=')[1] : undefined;
+
+    const poster = art.blured
+        ? art.blured.url
+        : videoId
+        ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+        : src;
+
     return (
         <video
-            preload="metadata"
+            // preload="metadata"
             src={src}
-            poster={art.blured ? art.blured.url : src}
+            poster={poster}
             className={cn('inline-block object-cover object-center', {
                 'w-full h-[50vh] max-h-[420px]': !art.blured,
             })}

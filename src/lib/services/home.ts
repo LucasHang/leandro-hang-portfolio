@@ -61,6 +61,7 @@ export async function getHomeArts(): Promise<ArtEntity[]> {
                             width
                             height
                         }
+                        youtubeUrl
                     }
                 }
             }

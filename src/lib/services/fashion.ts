@@ -19,6 +19,7 @@ export async function getFashionArts(): Promise<ArtEntity[]> {
                             width
                             height
                         }
+                        youtubeUrl
                     }
                 }
             }

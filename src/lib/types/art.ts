@@ -11,6 +11,7 @@ interface ArtData {
             width: number;
             height: number;
         };
+        youtubeUrl?: string;
     }[];
 }
 
