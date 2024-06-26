@@ -17,17 +17,20 @@ export function VideoArt({ src, art, onClick, style }: VideoArtProps) {
 
     const videoId = art.youtubeUrl ? art.youtubeUrl.split('v=')[1] : undefined;
 
-    const poster = art.blured
-        ? art.blured.url
-        : videoId
-        ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
-        : src;
+    if (videoId) {
+        return (
+            <iframe
+                className="inline-block object-cover object-center w-full h-[50vh] max-h-[420px]"
+                src={`https://www.youtube.com/embed/${videoId}?controls=2&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0`}
+            ></iframe>
+        );
+    }
 
     return (
         <video
-            // preload="metadata"
+            preload="metadata"
             src={src}
-            poster={poster}
+            poster={art.blured ? art.blured.url : src}
             className={cn('inline-block object-cover object-center', {
                 'w-full h-[50vh] max-h-[420px]': !art.blured,
             })}
