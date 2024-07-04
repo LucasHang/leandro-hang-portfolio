@@ -1,29 +1,21 @@
-'use client';
-
 import Image from 'next/image';
-import { CSSProperties } from 'react';
+import { RenderPhotoProps } from 'react-photo-album';
 
-import { type ArtEntity } from '@/lib/types/art';
+interface ImageArtProps extends RenderPhotoProps {}
 
-interface ImageArtProps {
-    src: string;
-    art: ArtEntity;
-    onClick?: () => void;
-    style: CSSProperties;
-}
-
-export function ImageArt({ src, art, onClick, style }: ImageArtProps) {
+export function ImageArt({
+    photo,
+    imageProps: { alt, title, sizes, className, onClick },
+    wrapperStyle,
+}: ImageArtProps) {
     return (
-        <Image
-            src={src}
-            alt={art.name}
-            width={style.width as number}
-            height={style.height as number}
-            placeholder="blur"
-            blurDataURL={art.blured ? art.blured.url : src}
-            className="inline-block object-cover object-center"
-            onClick={onClick}
-            style={style}
-        />
+        <div style={{ ...wrapperStyle, position: 'relative' }}>
+            <Image
+                fill
+                src={photo}
+                placeholder={'blurDataURL' in photo && photo.blurDataURL ? 'blur' : undefined}
+                {...{ alt, title, sizes, className, onClick }}
+            />
+        </div>
     );
 }

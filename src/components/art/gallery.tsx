@@ -1,12 +1,12 @@
 'use client';
 
 import FsLightbox from 'fslightbox-react';
-import Image from 'next/image';
 import { useState } from 'react';
-import PhotoAlbum, { RenderPhotoProps } from 'react-photo-album';
+import PhotoAlbum from 'react-photo-album';
 
 import { ArtEntity } from '@/lib/types/art';
 
+import { ImageArt } from './image-art';
 import { VideoArt } from './video-art';
 
 interface ArtsGalleryProps {
@@ -32,7 +32,7 @@ export function ArtsGallery({ arts, useLightBox }: ArtsGalleryProps) {
             <PhotoAlbum
                 layout="rows"
                 photos={arts.map(a => ({
-                    src: a.youtubeUrl || a.url,
+                    src: a.url, // Mesmo quando é um video, o src é a thumbnail
                     width: a.width || a.blured?.width || 16,
                     height: a.height || a.blured?.height || 9,
                     key: a.slug,
@@ -51,21 +51,12 @@ export function ArtsGallery({ arts, useLightBox }: ArtsGalleryProps) {
                     const respectiveArt = arts[props.layout.index];
 
                     if (respectiveArt.mimeType.includes('video') || respectiveArt.youtubeUrl) {
-                        return (
-                            <VideoArt
-                                key={props.photo.key}
-                                src={props.imageProps.src}
-                                art={respectiveArt}
-                                onClick={
-                                    useLightBox ? () => openLightBoxOnSlide(props.layout.index + 1) : undefined
-                                }
-                                style={props.imageProps.style}
-                            />
-                        );
+                        // @ts-expect-error
+                        return <VideoArt art={respectiveArt} {...props} />;
                     }
 
                     // @ts-expect-error
-                    return <NextJsImage {...props} />;
+                    return <ImageArt {...props} />;
                 }}
             />
 
@@ -77,22 +68,5 @@ export function ArtsGallery({ arts, useLightBox }: ArtsGalleryProps) {
                 />
             )}
         </>
-    );
-}
-
-function NextJsImage({
-    photo,
-    imageProps: { alt, title, sizes, className, onClick },
-    wrapperStyle,
-}: RenderPhotoProps) {
-    return (
-        <div style={{ ...wrapperStyle, position: 'relative' }}>
-            <Image
-                fill
-                src={photo}
-                placeholder={'blurDataURL' in photo && photo.blurDataURL ? 'blur' : undefined}
-                {...{ alt, title, sizes, className, onClick }}
-            />
-        </div>
     );
 }
