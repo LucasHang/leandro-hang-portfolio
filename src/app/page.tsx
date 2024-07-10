@@ -13,6 +13,7 @@ export default async function Home() {
     const { video: videoOrGif, footerImage } = homeInfo;
 
     const isVideo = videoOrGif.mimeType.includes('video');
+    const isFooterVideo = footerImage.mimeType.includes('video');
 
     return (
         <BaseLayout>
@@ -48,14 +49,25 @@ export default async function Home() {
             </main>
 
             <div className="relative w-full h-[50vh] max-h-[420px]">
-                <Image
-                    src={footerImage.url}
-                    alt="Home Footer Image"
-                    fill
-                    placeholder="blur"
-                    blurDataURL={footerImage.blured ? footerImage.blured.url : footerImage.url}
-                    className="object-cover object-center"
-                />
+                {isFooterVideo ? (
+                    <video
+                        src={footerImage.url}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover object-center"
+                    />
+                ) : (
+                    <Image
+                        src={footerImage.url}
+                        alt="Home Footer Image"
+                        fill
+                        placeholder="blur"
+                        blurDataURL={footerImage.blured ? footerImage.blured.url : footerImage.url}
+                        className="object-cover object-center"
+                    />
+                )}
             </div>
 
             <footer className="flex flex-col">

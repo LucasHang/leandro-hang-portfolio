@@ -17,7 +17,7 @@ export function Header({ className, ...rest }: HeaderProps) {
         <header
             {...rest}
             className={cn(
-                'h-site-header flex items-center justify-between gap-4 md:px-20 lg:px-32 px-16 bg-transparent z-50 sticky left-0 top-0 w-full backdrop-blur',
+                'h-site-header flex items-center justify-between gap-4 md:px-20 lg:px-32 px-16 bg-transparent z-50 sticky left-0 top-0 w-full',
                 className,
             )}
         >

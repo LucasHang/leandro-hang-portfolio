@@ -4,6 +4,7 @@ interface BioInfoImage {
     url: string;
     height: number;
     width: number;
+    mimeType: string;
 }
 
 interface BioInfo {
@@ -23,6 +24,7 @@ export async function getBioInfo(): Promise<BioInfo> {
                         url
                         height
                         width
+                        mimeType
                     }
                 }
             }

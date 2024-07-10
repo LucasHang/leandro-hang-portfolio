@@ -8,6 +8,7 @@ interface HomeInfo {
         url: string;
         width: number;
         height: number;
+        mimeType: string;
         blured?: { url: string };
     };
 }
@@ -32,6 +33,7 @@ export async function getHomeInfo(): Promise<HomeInfo> {
                         url
                         width
                         height
+                        mimeType
                         blured {
                             url
                         }
