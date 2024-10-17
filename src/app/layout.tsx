@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
+import FacebookPixel from '@/components/facebook-pixel';
 import { siteConfig } from '@/lib/config/site-config';
 
 import './globals.css';
@@ -22,6 +23,11 @@ export const metadata: Metadata = {
         locale: 'pt_BR',
         url: siteConfig.url,
     },
+    verification: {
+        other: {
+            ['facebook-domain-verification']: '6ze61pygf5i9bh6s4mq8oem8j8oove',
+        }
+    }
 };
 
 export default function RootLayout({
@@ -31,7 +37,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="pt">
-            <body className={`${modernSans.className}`}>{children}</body>
+            <body className={`${modernSans.className}`}>
+                {children}
+                <FacebookPixel />
+            </body>
         </html>
     );
 }
