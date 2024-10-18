@@ -1,3 +1,4 @@
+import { GoogleTagManager } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
@@ -37,8 +38,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="pt">
+            <GoogleTagManager gtmId='G-MC8M991ZJ8' />
+
             <body className={`${modernSans.className}`}>
                 {children}
+
                 <FacebookPixel />
             </body>
         </html>
