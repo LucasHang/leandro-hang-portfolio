@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
+import { siteConfig } from '@/lib/config/site-config';
 import { cn } from '@/lib/utils';
 
 import { Button } from '../ui/button';
@@ -63,6 +64,15 @@ function MenuNav({ isMenuOpen, setIsMenuOpen }: MenuNavProps) {
                 <Link href="/bio" className={cn({ underline: pathname === '/bio' })}>
                     BIO
                 </Link>
+
+                <a
+                    href={`https://wa.me/${siteConfig.contact.phoneNumber.raw}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="self-center py-3 px-4 rounded-md bg-green-950 text-white font-bold text-sm"
+                >
+                    ENTRAR EM CONTATO
+                </a>
             </nav>
         </div>
     );

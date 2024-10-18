@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
 import FacebookPixel from '@/components/facebook-pixel';
+import { WhatsappButton } from '@/components/whatsapp-button';
 import { siteConfig } from '@/lib/config/site-config';
 
 import './globals.css';
@@ -27,8 +28,8 @@ export const metadata: Metadata = {
     verification: {
         other: {
             ['facebook-domain-verification']: '6ze61pygf5i9bh6s4mq8oem8j8oove',
-        }
-    }
+        },
+    },
 };
 
 export default function RootLayout({
@@ -38,10 +39,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="pt">
-            <GoogleTagManager gtmId='G-MC8M991ZJ8' />
+            <GoogleTagManager gtmId="G-MC8M991ZJ8" />
 
             <body className={`${modernSans.className}`}>
                 {children}
+
+                <WhatsappButton />
 
                 <FacebookPixel />
             </body>

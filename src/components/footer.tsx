@@ -8,7 +8,7 @@ export function Footer() {
             <span>{siteConfig.personal.name}</span>
 
             <div className="flex items-center justify-center gap-2">
-                <span>{siteConfig.contact.phoneNumber}</span>
+                <span>{siteConfig.contact.phoneNumber.formatted}</span>
                 <span>|</span>
                 <span>{siteConfig.contact.email}</span>
             </div>

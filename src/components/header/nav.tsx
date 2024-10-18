@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import { siteConfig } from '@/lib/config/site-config';
 import { cn } from '@/lib/utils';
 
 export function HeaderNav() {
@@ -25,6 +26,15 @@ export function HeaderNav() {
             <Link href="/bio" className={cn({ underline: pathname === '/bio' })}>
                 BIO
             </Link>
+
+            <a
+                href={`https://wa.me/${siteConfig.contact.phoneNumber.raw}`}
+                target="_blank"
+                rel="noreferrer"
+                className="py-3 px-4 rounded-md bg-green-950 text-white font-bold text-sm"
+            >
+                ENTRAR EM CONTATO
+            </a>
         </nav>
     );
 }

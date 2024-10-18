@@ -74,7 +74,7 @@ export default async function Home() {
                 <div className="flex items-center justify-center gap-4 min-h-14 py-2 bg-black text-white flex-wrap">
                     <span>{siteConfig.personal.name}</span>
                     <span>|</span>
-                    <span>{siteConfig.contact.phoneNumber}</span>
+                    <span>{siteConfig.contact.phoneNumber.formatted}</span>
                     <span>|</span>
                     <span>{siteConfig.contact.email}</span>
                 </div>
