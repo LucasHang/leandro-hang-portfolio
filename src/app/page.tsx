@@ -7,6 +7,8 @@ import { BaseLayout } from '@/components/layout/base-layout';
 import { siteConfig } from '@/lib/config/site-config';
 import { getHomeArts, getHomeInfo } from '@/lib/services/home';
 
+export const revalidate = 3600; // revalidate at most every hour
+
 export default async function Home() {
     const [homeInfo, homeArts] = await Promise.all([getHomeInfo(), getHomeArts()]);
 

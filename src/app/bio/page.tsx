@@ -2,6 +2,8 @@ import Image from 'next/image';
 
 import { getBioInfo } from '@/lib/services/bio';
 
+export const revalidate = 3600; // revalidate at most every hour
+
 export default async function BioPage() {
     const bioInfo = await getBioInfo();
 
