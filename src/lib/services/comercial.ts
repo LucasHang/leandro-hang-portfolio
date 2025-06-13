@@ -2,11 +2,11 @@ import graphcms from './graph-client';
 
 import { ArtData, ArtEntity } from '../types/art';
 
-export async function getFilmsArts(): Promise<ArtEntity[]> {
-    const filmsArtsData = await graphcms.request<{ arts: ArtData[] }>(
+export async function getComercialArts(): Promise<ArtEntity[]> {
+    const comercialArtsData = await graphcms.request<{ arts: ArtData[] }>(
         `
-            query FilmsArts {
-                arts(where: {categories_contains_some: films}, orderBy: sequence_ASC) {
+            query ComercialArts {
+                arts(where: {categories_contains_some: comercial}, orderBy: sequence_ASC) {
                     slug
                     name
                     contents {
@@ -26,7 +26,7 @@ export async function getFilmsArts(): Promise<ArtEntity[]> {
         `,
     );
 
-    return filmsArtsData.arts.map(({ contents, ...rest }) => ({
+    return comercialArtsData.arts.map(({ contents, ...rest }) => ({
         ...rest,
         ...contents[0],
     }));

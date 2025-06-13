@@ -15,12 +15,20 @@ export function HeaderNav() {
                 INÍCIO
             </Link>
 
-            <Link href="/films" className={cn({ underline: pathname === '/films' })}>
-                FILMES
-            </Link>
-
             <Link href="/fashion" className={cn({ underline: pathname === '/fashion' })}>
                 FASHION
+            </Link>
+
+            <Link href="/institutional" className={cn({ underline: pathname === '/institutional' })}>
+                INSTITUCIONAL
+            </Link>
+
+            <Link href="/event" className={cn({ underline: pathname === '/event' })}>
+                EVENTO
+            </Link>
+
+            <Link href="/comercial" className={cn({ underline: pathname === '/comercial' })}>
+                COMERCIAL
             </Link>
 
             <Link href="/bio" className={cn({ underline: pathname === '/bio' })}>
@@ -33,7 +41,7 @@ export function HeaderNav() {
                 rel="noreferrer"
                 className="py-3 px-4 rounded-md bg-green-950 text-white font-bold text-sm"
             >
-                ENTRAR EM CONTATO
+                QUERO FAZER UM ORÇAMENTO
             </a>
         </nav>
     );
