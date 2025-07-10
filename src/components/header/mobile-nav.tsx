@@ -1,14 +1,16 @@
 'use client';
 
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import { siteConfig } from '@/lib/config/site-config';
 import { cn } from '@/lib/utils';
 
+import logoSvg from '../../../public/images/svg/logo.svg';
 import { Button } from '../ui/button';
 
 export function MobileHeaderNav() {
@@ -49,9 +51,12 @@ function MenuNav({ isMenuOpen, setIsMenuOpen }: MenuNavProps) {
             </Button>
 
             <nav className="flex flex-col gap-14">
-                <Link href="/" className={cn({ underline: pathname === '/' })}>
-                    INÍCIO
+                <Link href="/">
+                    <Image src={logoSvg} alt="Hang Leandro Logo" className="h-10 w-auto" />
                 </Link>
+                {/* <Link href="/" className={cn({ underline: pathname === '/' })}>
+                    INÍCIO
+                </Link> */}
 
                 <Link href="/fashion" className={cn({ underline: pathname === '/fashion' })}>
                     FASHION

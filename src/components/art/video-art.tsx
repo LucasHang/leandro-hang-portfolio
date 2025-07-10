@@ -25,16 +25,17 @@ export function VideoArt({
                     fill
                     src={photo}
                     placeholder={'blurDataURL' in photo && photo.blurDataURL ? 'blur' : undefined}
-                    {...{ alt, title, sizes, className, onClick: () => setPlayVideo(true) }}
+                    className={`cursor-pointer ${className}`}
+                    {...{ alt, title, sizes, onClick: () => setPlayVideo(true) }}
                 />
             )}
 
-            {!playVideo && (
+            {/* {!playVideo && (
                 <div
                     className="absolute top-1/2 left-1/2 h-12 w-12 -ml-6 -mt-6 cursor-pointer bg-[url(https://assets.squarespace.com/universal/images-v6/damask/play-button.png)]"
                     onClick={() => setPlayVideo(true)}
                 />
-            )}
+            )} */}
 
             {playVideo && <VideoPlayer art={art} onClick={onClick} />}
         </div>

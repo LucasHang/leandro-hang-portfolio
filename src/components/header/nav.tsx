@@ -11,9 +11,9 @@ export function HeaderNav() {
 
     return (
         <nav className="hidden md:flex items-center gap-14">
-            <Link href="/" className={cn({ underline: pathname === '/' })}>
+            {/* <Link href="/" className={cn({ underline: pathname === '/' })}>
                 INÍCIO
-            </Link>
+            </Link> */}
 
             <Link href="/fashion" className={cn({ underline: pathname === '/fashion' })}>
                 FASHION
