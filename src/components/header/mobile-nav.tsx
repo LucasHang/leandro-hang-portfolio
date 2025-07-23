@@ -10,7 +10,8 @@ import { createPortal } from 'react-dom';
 import { siteConfig } from '@/lib/config/site-config';
 import { cn } from '@/lib/utils';
 
-import logoSvg from '../../../public/images/svg/logo.svg';
+// import logoSvg from '../../../public/images/svg/logo.svg';
+import logo from '../../../public/images/png/logo-vertical.png';
 import { Button } from '../ui/button';
 
 export function MobileHeaderNav() {
@@ -52,7 +53,7 @@ function MenuNav({ isMenuOpen, setIsMenuOpen }: MenuNavProps) {
 
             <nav className="flex flex-col gap-14">
                 <Link href="/">
-                    <Image src={logoSvg} alt="Hang Leandro Logo" className="h-10 w-auto" />
+                    <Image src={logo} alt="Hang Leandro Logo" className="h-10 w-auto" />
                 </Link>
                 {/* <Link href="/" className={cn({ underline: pathname === '/' })}>
                     INÍCIO
@@ -84,7 +85,7 @@ function MenuNav({ isMenuOpen, setIsMenuOpen }: MenuNavProps) {
                     rel="noreferrer"
                     className="self-center py-3 px-4 rounded-md bg-green-950 text-white font-bold text-sm"
                 >
-                    QUERO FAZER UM ORÇAMENTO
+                    ORÇAMENTO
                 </a>
             </nav>
         </div>

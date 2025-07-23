@@ -41,7 +41,7 @@ export function HeaderNav() {
                 rel="noreferrer"
                 className="py-3 px-4 rounded-md bg-green-950 text-white font-bold text-sm"
             >
-                QUERO FAZER UM ORÇAMENTO
+                ORÇAMENTO
             </a>
         </nav>
     );

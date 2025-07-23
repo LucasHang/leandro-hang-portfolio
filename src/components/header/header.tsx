@@ -8,7 +8,8 @@ import { cn } from '@/lib/utils';
 import { MobileHeaderNav } from './mobile-nav';
 import { HeaderNav } from './nav';
 
-import logoSvg from '../../../public/images/svg/logo.svg';
+// import logoSvg from '../../../public/images/svg/logo.svg';
+import logo from '../../../public/images/png/logo-vertical.png';
 
 export interface HeaderProps extends React.HTMLAttributes<HTMLElement> {}
 
@@ -22,7 +23,7 @@ export function Header({ className, ...rest }: HeaderProps) {
             )}
         >
             <Link href="/">
-                <Image src={logoSvg} alt="Hang Leandro Logo" className="h-10 w-auto" />
+                <Image src={logo} alt="Hang Leandro Logo" className="h-10 w-auto" />
             </Link>
 
             <div className="flex items-center md:gap-16 gap-8">
