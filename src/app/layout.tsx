@@ -8,7 +8,41 @@ import { siteConfig } from '@/lib/config/site-config';
 
 import './globals.css';
 
-const modernSans = localFont({ src: './fonts/ModernSans-Light.otf', display: 'swap' });
+const modernSans = localFont({
+    src: [
+        {
+            path: './fonts/MabryPro-Black.ttf',
+            weight: '900',
+            style: 'black',
+        },
+        {
+            path: './fonts/MabryPro-Bold.ttf',
+            weight: '700',
+            style: 'bold',
+        },
+        {
+            path: './fonts/MabryPro-Italic.ttf',
+            weight: '400',
+            style: 'italic',
+        },
+        {
+            path: './fonts/MabryPro-Light.ttf',
+            weight: '300',
+            style: 'light',
+        },
+        {
+            path: './fonts/MabryPro-Medium.ttf',
+            weight: '500',
+            style: 'medium',
+        },
+        {
+            path: './fonts/MabryPro-Regular.ttf',
+            weight: '400',
+            style: 'normal',
+        },
+    ],
+    display: 'swap',
+});
 
 export const metadata: Metadata = {
     title: {

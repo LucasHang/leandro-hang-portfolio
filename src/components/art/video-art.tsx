@@ -7,7 +7,7 @@ import { RenderPhotoProps } from 'react-photo-album';
 import { type ArtEntity } from '@/lib/types/art';
 
 interface VideoArtProps extends RenderPhotoProps {
-    art: ArtEntity;
+    art: Pick<ArtEntity, 'youtubeUrl' | 'url' | 'blured'>;
 }
 
 export function VideoArt({
@@ -43,7 +43,7 @@ export function VideoArt({
 }
 
 interface VideoPlayerProps {
-    art: ArtEntity;
+    art: Pick<ArtEntity, 'youtubeUrl' | 'url' | 'blured'>;
     onClick: RenderPhotoProps['imageProps']['onClick'];
 }
 

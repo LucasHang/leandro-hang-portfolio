@@ -1,10 +1,16 @@
 import graphcms from './graph-client';
 
-interface BioInfoImage {
+export interface BioInfoImage {
     url: string;
-    height: number;
     width: number;
     mimeType: string;
+    height: number;
+    blured?: {
+        url: string;
+        width: number;
+        height: number;
+    };
+    youtubeUrl?: string;
 }
 
 interface BioInfo {
@@ -22,9 +28,15 @@ export async function getBioInfo(): Promise<BioInfo> {
                 bioInfos {
                     image {
                         url
-                        height
                         width
                         mimeType
+                        height
+                        blured {
+                            url
+                            width
+                            height
+                        }
+                        youtubeUrl
                     }
                 }
             }

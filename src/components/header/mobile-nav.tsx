@@ -51,7 +51,7 @@ function MenuNav({ isMenuOpen, setIsMenuOpen }: MenuNavProps) {
                 <X className="h-5 w-5" />
             </Button>
 
-            <nav className="flex flex-col gap-14">
+            <nav className="flex flex-col gap-14 font-light">
                 <Link href="/">
                     <Image src={logo} alt="Hang Leandro Logo" className="h-10 w-auto" />
                 </Link>

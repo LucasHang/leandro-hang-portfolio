@@ -1,4 +1,4 @@
-import { PageContentTitle } from './page-content-title';
+// import { PageContentTitle } from './page-content-title';
 
 import { DeveloperCredits } from '../developer-credits';
 import { Footer } from '../footer';
@@ -11,7 +11,7 @@ interface PageContentLayoutProps {
 export function PageContentLayout({ title, children }: PageContentLayoutProps) {
     return (
         <main className="relative min-h-screen w-full">
-            <PageContentTitle title={title} />
+            {/* <PageContentTitle title={title} /> */}
 
             {children}
 

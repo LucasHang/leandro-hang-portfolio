@@ -42,7 +42,7 @@ export default async function Home() {
                 )}
 
                 <div className="absolute md:left-32 left-20 bottom-36">
-                    <h1 className="text-4xl">PRODUTOR AUDIOVISUAL</h1>
+                    <h1 className="text-4xl">PRODUTORA AUDIOVISUAL</h1>
                 </div>
             </div>
 
@@ -73,12 +73,20 @@ export default async function Home() {
             </div>
 
             <footer className="flex flex-col">
-                <div className="flex items-center justify-center gap-4 min-h-14 py-2 bg-black text-white flex-wrap">
-                    <span>{siteConfig.personal.name}</span>
+                <div className="flex items-center justify-center gap-4 min-h-14 py-2 bg-black text-white flex-wrap font-light">
+                    <span className="uppercase">{siteConfig.personal.name}</span>
                     <span>|</span>
-                    <span>{siteConfig.contact.phoneNumber.formatted}</span>
+                    <a
+                        href={`https://wa.me/${siteConfig.contact.phoneNumber.raw}`}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        {siteConfig.contact.phoneNumber.formatted}
+                    </a>
                     <span>|</span>
-                    <span>{siteConfig.contact.email}</span>
+                    <a href={`mailto:${siteConfig.contact.email}`} className="uppercase">
+                        {siteConfig.contact.email}
+                    </a>
                 </div>
 
                 <div className="h-52 bg-white text-black flex items-center justify-center">
