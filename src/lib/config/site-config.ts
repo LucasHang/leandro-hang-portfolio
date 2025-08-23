@@ -21,8 +21,8 @@ export const siteConfig = {
     contact: {
         email: 'leandro@hangleandro.com',
         phoneNumber: {
-            formatted: '+55 48991288102',
-            raw: '5548991288102',
+            formatted: '(48) 9 9215-2640',
+            raw: '5548992152640',
         },
     },
 };
