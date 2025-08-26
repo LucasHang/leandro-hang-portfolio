@@ -50,7 +50,11 @@ export function ArtsGallery({ arts, useLightBox }: ArtsGalleryProps) {
                 renderPhoto={props => {
                     const respectiveArt = arts[props.layout.index];
 
-                    if (respectiveArt.mimeType.includes('video') || respectiveArt.youtubeUrl) {
+                    const isVideo =
+                        (respectiveArt.mimeType && respectiveArt.mimeType.includes('video')) ||
+                        respectiveArt.youtubeUrl;
+
+                    if (isVideo) {
                         // @ts-expect-error
                         return <VideoArt art={respectiveArt} {...props} />;
                     }
