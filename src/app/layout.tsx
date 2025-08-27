@@ -58,7 +58,13 @@ export const metadata: Metadata = {
         type: 'website',
         locale: 'pt_BR',
         url: siteConfig.url,
-        images: ['https://hangleandro.com/opengraph-image.jpg'],
+        images: [
+            {
+                url: 'https://sa-east-1.graphassets.com/A9JzQr5c4QpGJkNhtk2MXz/cmeukp7sd156308lq18almrut',
+                width: 1280,
+                height: 720,
+            },
+        ],
     },
     verification: {
         other: {
