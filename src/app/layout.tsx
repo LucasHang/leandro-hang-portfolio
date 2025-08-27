@@ -58,7 +58,6 @@ export const metadata: Metadata = {
         type: 'website',
         locale: 'pt_BR',
         url: siteConfig.url,
-        images: '/opengraph-image.png',
     },
     verification: {
         other: {
