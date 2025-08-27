@@ -1,6 +1,6 @@
 export const siteConfig = {
-    name: 'HANG LEANDRO',
-    description: 'Trabalhos e projetos Audio-Visual feitos por Leandro Hang',
+    name: 'HANGLEANDROprod',
+    description: 'Trabalhos e projetos audio-visual feitos por Leandro Hang e Jordana S. Bittencourt',
     url: 'https://hangleandro.com',
     keywords: [
         'Leandro Hang',
