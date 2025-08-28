@@ -18,7 +18,7 @@ export function Header({ className, ...rest }: HeaderProps) {
         <header
             {...rest}
             className={cn(
-                'h-site-header flex items-center justify-between gap-4 md:px-20 lg:px-32 px-16 bg-transparent z-50 sticky left-0 top-0 w-full',
+                'h-site-header flex items-center justify-between gap-4 px-16 bg-transparent z-50 sticky left-0 top-0 w-full',
                 className,
             )}
         >
@@ -26,7 +26,7 @@ export function Header({ className, ...rest }: HeaderProps) {
                 <Image src={logo} alt="Hang Leandro Logo" className="h-10 w-auto" />
             </Link>
 
-            <div className="flex items-center md:gap-16 gap-8">
+            <div className="flex items-center md:gap-12 gap-8">
                 <HeaderNav />
 
                 <MobileHeaderNav />
