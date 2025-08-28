@@ -75,6 +75,10 @@ function MenuNav({ isMenuOpen, setIsMenuOpen }: MenuNavProps) {
                     COMERCIAL
                 </Link>
 
+                <Link href="/autorais" className={cn({ underline: pathname === '/autorais' })}>
+                    AUTORAL
+                </Link>
+
                 <Link href="/bio" className={cn({ underline: pathname === '/bio' })}>
                     BIO
                 </Link>
