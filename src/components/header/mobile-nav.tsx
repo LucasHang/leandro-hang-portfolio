@@ -53,7 +53,7 @@ function MenuNav({ isMenuOpen, setIsMenuOpen }: MenuNavProps) {
 
             <nav className="flex flex-col gap-14 font-light">
                 <Link href="/">
-                    <Image src={logo} alt="Hang Leandro Logo" className="h-10 w-auto" />
+                    <Image src={logo} alt="Hang Leandro Produtora" className="h-10 w-auto" />
                 </Link>
                 {/* <Link href="/" className={cn({ underline: pathname === '/' })}>
                     INÍCIO

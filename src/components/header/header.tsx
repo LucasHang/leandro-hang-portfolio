@@ -23,7 +23,7 @@ export function Header({ className, ...rest }: HeaderProps) {
             )}
         >
             <Link href="/">
-                <Image src={logo} alt="Hang Leandro Logo" className="h-10 w-auto" />
+                <Image src={logo} alt="Hang Leandro Produtora" className="h-10 w-auto" />
             </Link>
 
             <div className="flex items-center md:gap-12 gap-8">
