@@ -25,4 +25,7 @@ export const siteConfig = {
             raw: '5548992152640',
         },
     },
+    company: {
+        cnpj: '48.625.767/0001-44',
+    },
 };

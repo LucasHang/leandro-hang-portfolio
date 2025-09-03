@@ -21,6 +21,8 @@ export function Footer() {
                 </a>
             </div>
 
+            <span className="font-light">{siteConfig.company.cnpj}</span>
+
             <a href={siteConfig.links.instagram} target="_blank" rel="noreferrer">
                 <Instagram className="h-4 w-4" />
             </a>

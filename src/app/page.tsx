@@ -89,6 +89,8 @@ export default async function Home() {
                     </a>
                 </div>
 
+                <span className="font-light">{siteConfig.company.cnpj}</span>
+
                 <div className="h-52 bg-white text-black flex items-center justify-center">
                     <a href={siteConfig.links.instagram} target="_blank" rel="noreferrer">
                         <Instagram className="h-4 w-4" />
