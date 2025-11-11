@@ -26,6 +26,6 @@ export const siteConfig = {
         },
     },
     company: {
-        cnpj: '48.625.767/0001-44',
+        cnpj: '45.625.767/0001-44',
     },
 };
