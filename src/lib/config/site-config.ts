@@ -13,7 +13,7 @@ export const siteConfig = {
         'Institucional',
     ],
     links: {
-        instagram: 'https://www.instagram.com/hangleandro/',
+        instagram: 'https://www.instagram.com/hangleandroprod/',
     },
     personal: {
         name: 'Leandro Hang',

@@ -74,8 +74,6 @@ export default async function Home() {
 
             <footer className="flex flex-col">
                 <div className="flex items-center justify-center gap-4 min-h-14 py-2 bg-black text-white flex-wrap font-light">
-                    <span className="uppercase">{siteConfig.personal.name}</span>
-                    <span>|</span>
                     <a
                         href={`https://wa.me/${siteConfig.contact.phoneNumber.raw}`}
                         target="_blank"

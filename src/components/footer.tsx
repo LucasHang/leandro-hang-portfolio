@@ -6,8 +6,6 @@ export function Footer() {
     return (
         <footer className="flex flex-col items-center justify-center h-60 gap-4 bg-white text-black mt-1">
             <div className="flex items-center justify-center gap-2 flex-wrap font-light">
-                <span className="uppercase">{siteConfig.personal.name}</span>
-                <span>|</span>
                 <a
                     href={`https://wa.me/${siteConfig.contact.phoneNumber.raw}`}
                     target="_blank"
