@@ -16,8 +16,6 @@ export default async function BioPage() {
 
     const isVideo = bioInfo.image.mimeType.includes('video') || !!bioInfo.image.youtubeUrl;
 
-    console.log('bioInfo', bioInfo);
-
     return (
         <div>
             <div className="relative w-full h-[60vh] max-h-[646px]">
