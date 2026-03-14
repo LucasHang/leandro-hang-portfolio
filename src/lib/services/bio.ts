@@ -15,6 +15,11 @@ export interface BioInfoImage {
 
 interface BioInfo {
     image: BioInfoImage;
+    logosClientes: {
+        url: string;
+        width: number;
+        height: number;
+    }[];
 }
 
 interface BioInfoData {
@@ -37,6 +42,11 @@ export async function getBioInfo(): Promise<BioInfo> {
                             height
                         }
                         youtubeUrl
+                    }
+                    logosClientes {
+                        url
+                        width
+                        height
                     }
                 }
             }

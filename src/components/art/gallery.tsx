@@ -12,9 +12,10 @@ import { VideoArt } from './video-art';
 interface ArtsGalleryProps {
     arts: ArtEntity[];
     useLightBox?: boolean;
+    showBackdropTitle?: boolean;
 }
 
-export function ArtsGallery({ arts, useLightBox }: ArtsGalleryProps) {
+export function ArtsGallery({ arts, useLightBox, showBackdropTitle }: ArtsGalleryProps) {
     const [lightBoxController, setLightBoxController] = useState({
         toggler: false,
         slide: 1,
@@ -55,12 +56,14 @@ export function ArtsGallery({ arts, useLightBox }: ArtsGalleryProps) {
                         respectiveArt.youtubeUrl;
 
                     if (isVideo) {
-                        // @ts-expect-error
-                        return <VideoArt art={respectiveArt} {...props} />;
+                        return (
+                            // @ts-expect-error
+                            <VideoArt art={respectiveArt} showBackdropTitle={showBackdropTitle} {...props} />
+                        );
                     }
 
                     // @ts-expect-error
-                    return <ImageArt {...props} />;
+                    return <ImageArt art={respectiveArt} showBackdropTitle={showBackdropTitle} {...props} />;
                 }}
             />
 

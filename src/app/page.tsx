@@ -1,102 +1,56 @@
-import { Instagram } from 'lucide-react';
 import Image from 'next/image';
 
-import { ArtsGallery } from '@/components/art/gallery';
-import { DeveloperCredits } from '@/components/developer-credits';
-import { BaseLayout } from '@/components/layout/base-layout';
-import { siteConfig } from '@/lib/config/site-config';
-import { getHomeArts, getHomeInfo } from '@/lib/services/home';
+import { Header } from '@/components/header/header';
+import { HeaderNav } from '@/components/header/nav';
+import { getHomeInfo } from '@/lib/services/home';
+
+import logo from '../../public/images/png/logo.png';
 
 export const revalidate = 3600; // revalidate at most every hour
 
 export default async function Home() {
-    const [homeInfo, homeArts] = await Promise.all([getHomeInfo(), getHomeArts()]);
+    const homeInfo = await getHomeInfo();
 
-    const { video: videoOrGif, footerImage } = homeInfo;
+    const { video: videoOrGif } = homeInfo;
 
     const isVideo = videoOrGif.mimeType.includes('video');
-    const isFooterVideo = footerImage.mimeType.includes('video');
 
     return (
-        <BaseLayout>
-            <div className="absolute inset-0">
-                {isVideo ? (
-                    <video
-                        src={videoOrGif.url}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="absolute inset-0 w-full h-full object-cover object-center"
-                    />
-                ) : (
-                    <Image
-                        src={videoOrGif.url}
-                        fill
-                        alt="Home Background"
-                        unoptimized
-                        placeholder="blur"
-                        blurDataURL={videoOrGif.blured ? videoOrGif.blured.url : videoOrGif.url}
-                        className="object-cover object-center"
-                    />
-                )}
+        <main className="relative h-screen w-screen flex flex-col items-center justify-between md:shadow">
+            {isVideo ? (
+                <video
+                    src={videoOrGif.url}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                />
+            ) : (
+                <Image
+                    src={videoOrGif.url}
+                    fill
+                    alt="Home Background"
+                    unoptimized
+                    placeholder="blur"
+                    blurDataURL={videoOrGif.blured ? videoOrGif.blured.url : videoOrGif.url}
+                    className="object-cover object-center"
+                />
+            )}
 
-                <div className="absolute md:left-32 left-20 bottom-36">
-                    <h1 className="text-4xl">PRODUTORA AUDIOVISUAL</h1>
-                </div>
-            </div>
+            <div className="absolute top-0 bg-gradient-to-b from-black to-transparent h-56 w-full" />
 
-            <main className="flex flex-col pt-site-content my-1">
-                <ArtsGallery arts={homeArts} useLightBox={false} />
-            </main>
+            <div className="absolute bottom-0 bg-gradient-to-t from-black to-transparent h-56 w-full hidden md:block" />
 
-            <div className="relative w-full h-[50vh] max-h-[420px]">
-                {isFooterVideo ? (
-                    <video
-                        src={footerImage.url}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="absolute inset-0 w-full h-full object-cover object-center"
-                    />
-                ) : (
-                    <Image
-                        src={footerImage.url}
-                        alt="Home Footer Image"
-                        fill
-                        placeholder="blur"
-                        blurDataURL={footerImage.blured ? footerImage.blured.url : footerImage.url}
-                        className="object-cover object-center"
-                    />
-                )}
-            </div>
+            <Image
+                src={logo}
+                alt="Acourt Filmes Produtora"
+                className="absolute top-10 left-auto right-auto h-12 w-auto hidden md:block"
+            />
 
-            <footer className="flex flex-col">
-                <div className="flex items-center justify-center gap-4 min-h-14 py-2 bg-black text-white flex-wrap font-light">
-                    <a
-                        href={`https://wa.me/${siteConfig.contact.phoneNumber.raw}`}
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        {siteConfig.contact.phoneNumber.formatted}
-                    </a>
-                    <span>|</span>
-                    <a href={`mailto:${siteConfig.contact.email}`} className="uppercase">
-                        {siteConfig.contact.email}
-                    </a>
-                </div>
+            <Header className="md:hidden" />
 
-                <div className="h-52 bg-white text-black flex-col flex items-center gap-4 justify-center">
-                    <span className="font-light">{siteConfig.company.cnpj}</span>
-
-                    <a href={siteConfig.links.instagram} target="_blank" rel="noreferrer">
-                        <Instagram className="h-4 w-4" />
-                    </a>
-                </div>
-            </footer>
-
-            <DeveloperCredits />
-        </BaseLayout>
+            <HeaderNav className="absolute bottom-10 left-auto right-auto" />
+        </main>
     );
 }

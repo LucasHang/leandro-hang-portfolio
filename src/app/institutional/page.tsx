@@ -6,5 +6,5 @@ export const revalidate = 3600; // revalidate at most every hour
 export default async function InstitutionalPage() {
     const institutionalArts = await getInstitutionalArts();
 
-    return <ArtsGallery arts={institutionalArts} />;
+    return <ArtsGallery arts={institutionalArts} showBackdropTitle={true} />;
 }

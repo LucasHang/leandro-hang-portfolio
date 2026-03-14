@@ -1,25 +1,13 @@
 export const siteConfig = {
-    name: 'HANGLEANDROprod',
-    description: 'Trabalhos e projetos audio-visual feitos por Leandro Hang e Jordana S. Bittencourt',
-    url: 'https://hangleandro.com',
-    keywords: [
-        'Leandro Hang',
-        'Audio-Visual',
-        'Vídeo',
-        'Edição',
-        'Designer',
-        'Comercial',
-        'Evento',
-        'Institucional',
-    ],
+    name: 'Acourt Filmes',
+    description: 'Trabalhos e projetos audio-visual feitos pela produtora Acourt Filmes',
+    url: 'https://acourtfilmes.com.br/',
+    keywords: ['Audio-Visual', 'Vídeo', 'Edição', 'Designer', 'Comercial', 'Evento', 'Institucional'],
     links: {
-        instagram: 'https://www.instagram.com/hangleandroprod/',
-    },
-    personal: {
-        name: 'Leandro Hang',
+        instagram: 'https://www.instagram.com/acourtfilmes/',
     },
     contact: {
-        email: 'leandro@hangleandro.com',
+        email: 'contato@acourtfilmes.com.br',
         phoneNumber: {
             formatted: '(48) 9 9215-2640',
             raw: '5548992152640',

@@ -10,8 +10,7 @@ import { createPortal } from 'react-dom';
 import { siteConfig } from '@/lib/config/site-config';
 import { cn } from '@/lib/utils';
 
-// import logoSvg from '../../../public/images/svg/logo.svg';
-import logo from '../../../public/images/png/logo-vertical.png';
+import logo from '../../../public/images/png/logo.png';
 import { Button } from '../ui/button';
 
 export function MobileHeaderNav() {
@@ -55,32 +54,21 @@ function MenuNav({ isMenuOpen, setIsMenuOpen }: MenuNavProps) {
                 <Link href="/">
                     <Image src={logo} alt="Hang Leandro Produtora" className="h-10 w-auto" />
                 </Link>
-                {/* <Link href="/" className={cn({ underline: pathname === '/' })}>
-                    INÍCIO
-                </Link> */}
 
                 <Link href="/fashion" className={cn({ underline: pathname === '/fashion' })}>
                     FASHION
-                </Link>
-
-                <Link href="/institutional" className={cn({ underline: pathname === '/institutional' })}>
-                    INSTITUCIONAL
-                </Link>
-
-                <Link href="/event" className={cn({ underline: pathname === '/event' })}>
-                    EVENTO
                 </Link>
 
                 <Link href="/comercial" className={cn({ underline: pathname === '/comercial' })}>
                     COMERCIAL
                 </Link>
 
-                <Link href="/autorais" className={cn({ underline: pathname === '/autorais' })}>
-                    AUTORAL
+                <Link href="/institutional" className={cn({ underline: pathname === '/institutional' })}>
+                    INSTITUCIONAL
                 </Link>
 
                 <Link href="/bio" className={cn({ underline: pathname === '/bio' })}>
-                    BIO
+                    SOBRE
                 </Link>
 
                 <a

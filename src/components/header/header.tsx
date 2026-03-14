@@ -8,8 +8,7 @@ import { cn } from '@/lib/utils';
 import { MobileHeaderNav } from './mobile-nav';
 import { HeaderNav } from './nav';
 
-// import logoSvg from '../../../public/images/svg/logo.svg';
-import logo from '../../../public/images/png/logo-vertical.png';
+import logo from '../../../public/images/png/logo.png';
 
 export interface HeaderProps extends React.HTMLAttributes<HTMLElement> {}
 
@@ -23,7 +22,7 @@ export function Header({ className, ...rest }: HeaderProps) {
             )}
         >
             <Link href="/">
-                <Image src={logo} alt="Hang Leandro Produtora" className="h-10 w-auto" />
+                <Image src={logo} alt="Acourt Filmes Produtora" className="h-10 w-auto" />
             </Link>
 
             <div className="flex items-center md:gap-12 gap-8">
@@ -31,7 +30,12 @@ export function Header({ className, ...rest }: HeaderProps) {
 
                 <MobileHeaderNav />
 
-                <a href={siteConfig.links.instagram} target="_blank" rel="noreferrer">
+                <a
+                    href={siteConfig.links.instagram}
+                    className="block md:hidden"
+                    target="_blank"
+                    rel="noreferrer"
+                >
                     <Instagram className="h-4 w-4" />
                 </a>
             </div>

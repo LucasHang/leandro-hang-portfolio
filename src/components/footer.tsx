@@ -4,7 +4,7 @@ import { siteConfig } from '@/lib/config/site-config';
 
 export function Footer() {
     return (
-        <footer className="flex flex-col items-center justify-center h-60 gap-4 bg-white text-black mt-1">
+        <footer className="flex flex-col items-center justify-center h-60 gap-4 mt-1 px-4">
             <div className="flex items-center justify-center gap-2 flex-wrap font-light">
                 <a
                     href={`https://wa.me/${siteConfig.contact.phoneNumber.raw}`}

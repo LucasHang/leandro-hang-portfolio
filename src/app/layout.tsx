@@ -11,32 +11,32 @@ import './globals.css';
 const modernSans = localFont({
     src: [
         {
-            path: './fonts/MabryPro-Black.ttf',
+            path: './fonts/DMSans-Black.ttf',
             weight: '900',
             style: 'black',
         },
         {
-            path: './fonts/MabryPro-Bold.ttf',
+            path: './fonts/DMSans-Bold.ttf',
             weight: '700',
             style: 'bold',
         },
         {
-            path: './fonts/MabryPro-Italic.ttf',
+            path: './fonts/DMSans-Italic.ttf',
             weight: '400',
             style: 'italic',
         },
         {
-            path: './fonts/MabryPro-Light.ttf',
+            path: './fonts/DMSans-Light.ttf',
             weight: '300',
             style: 'light',
         },
         {
-            path: './fonts/MabryPro-Medium.ttf',
+            path: './fonts/DMSans-Medium.ttf',
             weight: '500',
             style: 'medium',
         },
         {
-            path: './fonts/MabryPro-Regular.ttf',
+            path: './fonts/DMSans-Regular.ttf',
             weight: '400',
             style: 'normal',
         },
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
         url: siteConfig.url,
         images: [
             {
-                url: 'https://sa-east-1.graphassets.com/A9JzQr5c4QpGJkNhtk2MXz/cmeukp7sd156308lq18almrut',
+                url: 'https://sa-east-1.graphassets.com/A9JzQr5c4QpGJkNhtk2MXz/cmmqtb17f0rmp07kfdaudlax5',
                 width: 1280,
                 height: 720,
             },

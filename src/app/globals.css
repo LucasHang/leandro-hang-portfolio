@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-    --foreground-rgb: 255, 255, 255;
+    --foreground-rgb: 211, 185, 139;
 
     --site-header-height: 6rem /* 96px */;
 }
@@ -16,6 +16,24 @@ body {
 @layer base {
     body {
         @apply font-medium;
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .animate-marquee {
+        animation: marquee 25s linear infinite;
+    }
+
+    /* Optional: Pause animation on hover */
+    .animate-marquee:hover {
+        animation-play-state: paused;
     }
 }
 

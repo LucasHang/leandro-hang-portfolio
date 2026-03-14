@@ -5,9 +5,11 @@ import { useState } from 'react';
 import { RenderPhotoProps } from 'react-photo-album';
 
 import { type ArtEntity } from '@/lib/types/art';
+import { cn } from '@/lib/utils';
 
 interface VideoArtProps extends RenderPhotoProps {
-    art: Pick<ArtEntity, 'youtubeUrl' | 'url' | 'blured'>;
+    art: Pick<ArtEntity, 'youtubeUrl' | 'url' | 'blured' | 'name'>;
+    showBackdropTitle?: boolean;
 }
 
 export function VideoArt({
@@ -15,19 +17,31 @@ export function VideoArt({
     photo,
     imageProps: { alt, title, sizes, className, onClick },
     wrapperStyle,
+    showBackdropTitle = false,
 }: VideoArtProps) {
     const [playVideo, setPlayVideo] = useState(false);
 
     return (
-        <div style={{ ...wrapperStyle, position: 'relative' }}>
+        <div style={{ ...wrapperStyle, position: 'relative' }} className="group">
             {!playVideo && (
-                <Image
-                    fill
-                    src={photo}
-                    placeholder={'blurDataURL' in photo && photo.blurDataURL ? 'blur' : undefined}
-                    className={`cursor-pointer ${className}`}
-                    {...{ alt, title, sizes, onClick: () => setPlayVideo(true) }}
-                />
+                <>
+                    <Image
+                        fill
+                        src={photo}
+                        placeholder={'blurDataURL' in photo && photo.blurDataURL ? 'blur' : undefined}
+                        className={cn('cursor-pointer', className)}
+                        {...{ alt, title, sizes, onClick: () => setPlayVideo(true) }}
+                    />
+
+                    {showBackdropTitle && (
+                        <div
+                            onClick={() => setPlayVideo(true)}
+                            className="cursor-pointer bg-black/50 backdrop-blur-md grid place-items-center absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                            <h2 className="text-center">{art.name}</h2>
+                        </div>
+                    )}
+                </>
             )}
 
             {/* {!playVideo && (

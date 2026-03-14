@@ -1,16 +1,19 @@
-import { BaseLayout } from './base-layout';
-import { PageContentLayout } from './page-content-layout';
+import { Footer } from '../footer';
+import { Header } from '../header/header';
 
 interface LayoutProps {
-    title: string;
     children: React.ReactNode;
 }
 
 /** This layout applies to all pages except the Home */
-export function Layout({ title, children }: LayoutProps) {
+export function Layout({ children }: LayoutProps) {
     return (
-        <BaseLayout headerProps={{ className: 'bg-black backdrop-blur-none' }}>
-            <PageContentLayout title={title}>{children}</PageContentLayout>
-        </BaseLayout>
+        <div className="flex flex-col w-full min-h-screen">
+            <Header className="backdrop-blur-md bg-black/50" />
+
+            <main className="relative min-h-screen w-full">{children}</main>
+
+            <Footer />
+        </div>
     );
 }

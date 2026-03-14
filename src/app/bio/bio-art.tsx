@@ -10,12 +10,15 @@ type BioArtProps = {
 export function BioArt({ bioInfoImage }: BioArtProps) {
     return (
         <VideoArt
-            art={bioInfoImage}
+            art={{
+                ...bioInfoImage,
+                name: 'SOBRE',
+            }}
             photo={{
                 src: bioInfoImage.url, // Mesmo quando é um video, o src é a thumbnail
                 width: bioInfoImage.width || bioInfoImage.blured?.width || 16,
                 height: bioInfoImage.height || bioInfoImage.blured?.height || 9,
-                alt: 'Video de bio mostrando a historia da Leandro Hang produtora',
+                alt: 'Video de bio mostrando a historia da Acourt Filmes produtora',
                 /** @ts-expect-error blurDataURL exists sometimes */
                 blurDataURL: bioInfoImage.blured?.url || bioInfoImage.url,
             }}
@@ -24,8 +27,8 @@ export function BioArt({ bioInfoImage }: BioArtProps) {
                 height: '100%',
             }}
             imageProps={{
-                alt: 'Video de bio mostrando a historia da Leandro Hang produtora',
-                title: 'Video de bio mostrando a historia da Leandro Hang produtora',
+                alt: 'Video de bio mostrando a historia da Acourt Filmes produtora',
+                title: 'Video de bio mostrando a historia da Acourt Filmes produtora',
                 src: bioInfoImage.url,
                 width: bioInfoImage.width,
                 height: bioInfoImage.height,
