@@ -3,6 +3,10 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
 import FacebookPixel from '@/components/facebook-pixel';
+import { Footer } from '@/components/footer';
+import { Header } from '@/components/header/header';
+import { HeaderSpacer } from '@/components/header/header-spacer';
+import { PageTransition } from '@/components/page-transition';
 import { WhatsappButton } from '@/components/whatsapp-button';
 import { siteConfig } from '@/lib/config/site-config';
 
@@ -83,7 +87,17 @@ export default function RootLayout({
             <GoogleTagManager gtmId="G-MC8M991ZJ8" />
 
             <body className={`${modernSans.className}`}>
-                {children}
+                <div className="flex flex-col w-full min-h-screen">
+                    <Header />
+
+                    <HeaderSpacer />
+
+                    <main className="relative min-h-screen w-full">
+                        <PageTransition>{children}</PageTransition>
+                    </main>
+
+                    <Footer />
+                </div>
 
                 <WhatsappButton />
 

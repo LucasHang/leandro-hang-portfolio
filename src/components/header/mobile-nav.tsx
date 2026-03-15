@@ -55,6 +55,10 @@ function MenuNav({ isMenuOpen, setIsMenuOpen }: MenuNavProps) {
                     <Image src={logo} alt="Hang Leandro Produtora" className="h-10 w-auto" />
                 </Link>
 
+                <Link href="/" className={cn({ underline: pathname === '/' })}>
+                    HOME
+                </Link>
+
                 <Link href="/fashion" className={cn({ underline: pathname === '/fashion' })}>
                     FASHION
                 </Link>

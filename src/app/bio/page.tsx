@@ -22,7 +22,7 @@ export default async function BioPage() {
                 {isVideo ? (
                     <BioArt bioInfoImage={bioInfo.image} />
                 ) : (
-                    <div className="flex flex-col items-center justify-center gap-14 h-full py-8 px-4">
+                    <div className="relative flex flex-col items-center justify-center gap-14 h-full py-8 px-4">
                         <Image
                             src={bioInfo.image.url}
                             alt="Bio Background"

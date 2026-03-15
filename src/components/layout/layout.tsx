@@ -1,5 +1,6 @@
 import { Footer } from '../footer';
 import { Header } from '../header/header';
+import { PageTransition } from '../page-transition';
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -11,7 +12,9 @@ export function Layout({ children }: LayoutProps) {
         <div className="flex flex-col w-full min-h-screen">
             <Header className="backdrop-blur-md bg-black/50" />
 
-            <main className="relative min-h-screen w-full">{children}</main>
+            <main className="relative min-h-screen w-full">
+                <PageTransition>{children}</PageTransition>
+            </main>
 
             <Footer />
         </div>

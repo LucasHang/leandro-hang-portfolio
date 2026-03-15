@@ -32,7 +32,7 @@ const InfiniteLogoCarousel = ({ logos }: InfiniteLogoCarouselProps) => {
                         alt={logo.alt || 'Logo'}
                         width={logo.width || 120}
                         height={logo.height || 60}
-                        className="object-contain h-28"
+                        className="object-contain max-h-28"
                     />
                 </div>
             ))}

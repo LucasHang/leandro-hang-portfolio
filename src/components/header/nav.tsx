@@ -14,19 +14,23 @@ export function HeaderNav({ className, ...rest }: HeaderNavProps) {
 
     return (
         <nav className={cn('hidden md:flex items-center gap-10 font-light', className)} {...rest}>
-            <Link href="/fashion" className={cn({ underline: pathname === '/fashion' })}>
+            <Link href="/" className={cn({ underline: pathname === '/' })} prefetch>
+                HOME
+            </Link>
+
+            <Link href="/fashion" className={cn({ underline: pathname === '/fashion' })} prefetch>
                 FASHION
             </Link>
 
-            <Link href="/comercial" className={cn({ underline: pathname === '/comercial' })}>
+            <Link href="/comercial" className={cn({ underline: pathname === '/comercial' })} prefetch>
                 COMERCIAL
             </Link>
 
-            <Link href="/institutional" className={cn({ underline: pathname === '/institutional' })}>
+            <Link href="/institutional" className={cn({ underline: pathname === '/institutional' })} prefetch>
                 INSTITUCIONAL
             </Link>
 
-            <Link href="/bio" className={cn({ underline: pathname === '/bio' })}>
+            <Link href="/bio" className={cn({ underline: pathname === '/bio' })} prefetch>
                 SOBRE
             </Link>
 

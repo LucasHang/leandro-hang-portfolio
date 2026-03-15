@@ -13,6 +13,7 @@
         "@types/fslightbox-react": "^1.7.7",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
+        "framer-motion": "^12.36.0",
         "fslightbox-react": "^1.7.6",
         "graphql": "^16.8.1",
         "graphql-request": "^7.0.1",
