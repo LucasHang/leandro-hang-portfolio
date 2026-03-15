@@ -17,7 +17,7 @@ import logo from '../../../public/images/png/logo.png';
 
 export interface HeaderProps extends React.HTMLAttributes<HTMLElement> {}
 
-export function Header({ className, ...rest }: HeaderProps) {
+export function Header({ className }: HeaderProps) {
     const pathname = usePathname();
     const isDesktop = useIsDesktop();
 
@@ -28,7 +28,6 @@ export function Header({ className, ...rest }: HeaderProps) {
     return (
         /** ts-expect-error not receiving motion props in rest */
         <motion.header
-            {...rest}
             layout
             layoutScroll
             animate={{
