@@ -6,10 +6,11 @@ import FacebookPixel from '@/components/facebook-pixel';
 import { WhatsappButton } from '@/components/whatsapp-button';
 import { siteConfig } from '@/lib/config/site-config';
 
-import './globals.css';
 import { TransitionRouter } from '@/components/transition-router';
 import { PageStack } from '@/components/page-stack';
 import dynamic from 'next/dynamic';
+
+import './globals.css';
 
 const HomePage = dynamic(() => import('./page'));
 const ComercialPage = dynamic(() => import('./comercial/page'));
