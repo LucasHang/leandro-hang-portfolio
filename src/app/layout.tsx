@@ -1,14 +1,13 @@
 import { GoogleTagManager } from '@next/third-parties/google';
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import localFont from 'next/font/local';
 
 import FacebookPixel from '@/components/facebook-pixel';
+import { PageStack } from '@/components/page-stack';
+import { TransitionRouter } from '@/components/transition-router';
 import { WhatsappButton } from '@/components/whatsapp-button';
 import { siteConfig } from '@/lib/config/site-config';
-
-import { TransitionRouter } from '@/components/transition-router';
-import { PageStack } from '@/components/page-stack';
-import dynamic from 'next/dynamic';
 
 import './globals.css';
 

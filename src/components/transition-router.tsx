@@ -1,7 +1,7 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 type RouterContextType = {
     route: string;

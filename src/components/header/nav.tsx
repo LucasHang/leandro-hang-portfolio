@@ -4,6 +4,7 @@ import { Instagram } from 'lucide-react';
 
 import { siteConfig } from '@/lib/config/site-config';
 import { cn } from '@/lib/utils';
+
 import { NavLink } from '../nav-link';
 
 export interface HeaderNavProps extends React.HTMLAttributes<HTMLElement> {}
