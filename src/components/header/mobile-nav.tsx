@@ -2,8 +2,6 @@
 
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -12,6 +10,7 @@ import { cn } from '@/lib/utils';
 
 import logo from '../../../public/images/png/logo.png';
 import { Button } from '../ui/button';
+import { NavLink } from '../nav-link';
 
 export function MobileHeaderNav() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,8 +36,6 @@ interface MenuNavProps {
 }
 
 function MenuNav({ isMenuOpen, setIsMenuOpen }: MenuNavProps) {
-    const pathname = usePathname();
-
     return (
         <div
             className={cn(
@@ -51,29 +48,29 @@ function MenuNav({ isMenuOpen, setIsMenuOpen }: MenuNavProps) {
             </Button>
 
             <nav className="flex flex-col gap-14 font-light">
-                <Link href="/">
+                <NavLink href="/" onClick={() => setIsMenuOpen(false)}>
                     <Image src={logo} alt="Hang Leandro Produtora" className="h-10 w-auto" />
-                </Link>
+                </NavLink>
 
-                <Link href="/" className={cn({ underline: pathname === '/' })}>
+                <NavLink href="/" onClick={() => setIsMenuOpen(false)}>
                     HOME
-                </Link>
+                </NavLink>
 
-                <Link href="/fashion" className={cn({ underline: pathname === '/fashion' })}>
+                <NavLink href="/fashion" onClick={() => setIsMenuOpen(false)}>
                     FASHION
-                </Link>
+                </NavLink>
 
-                <Link href="/comercial" className={cn({ underline: pathname === '/comercial' })}>
+                <NavLink href="/comercial" onClick={() => setIsMenuOpen(false)}>
                     COMERCIAL
-                </Link>
+                </NavLink>
 
-                <Link href="/institutional" className={cn({ underline: pathname === '/institutional' })}>
+                <NavLink href="/institutional" onClick={() => setIsMenuOpen(false)}>
                     INSTITUCIONAL
-                </Link>
+                </NavLink>
 
-                <Link href="/bio" className={cn({ underline: pathname === '/bio' })}>
+                <NavLink href="/bio" onClick={() => setIsMenuOpen(false)}>
                     SOBRE
-                </Link>
+                </NavLink>
 
                 <a
                     href={`https://wa.me/${siteConfig.contact.phoneNumber.raw}`}

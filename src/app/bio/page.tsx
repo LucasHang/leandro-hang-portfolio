@@ -2,6 +2,7 @@ import { Instagram, Mail } from 'lucide-react';
 import Image from 'next/image';
 
 import InfiniteLogoCarousel from '@/components/infinite-logos-carousel';
+import { PageLayout } from '@/components/layout/page-layout';
 import { siteConfig } from '@/lib/config/site-config';
 import { getBioInfo } from '@/lib/services/bio';
 
@@ -17,7 +18,7 @@ export default async function BioPage() {
     const isVideo = bioInfo.image.mimeType.includes('video') || !!bioInfo.image.youtubeUrl;
 
     return (
-        <div>
+        <PageLayout>
             <div className="relative w-full h-[60vh] max-h-[646px]">
                 {isVideo ? (
                     <BioArt bioInfoImage={bioInfo.image} />
@@ -94,6 +95,6 @@ export default async function BioPage() {
 
                 <InfiniteLogoCarousel logos={bioInfo.logosClientes} />
             </div>
-        </div>
+        </PageLayout>
     );
 }

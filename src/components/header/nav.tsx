@@ -1,38 +1,35 @@
 'use client';
 
 import { Instagram } from 'lucide-react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 import { siteConfig } from '@/lib/config/site-config';
 import { cn } from '@/lib/utils';
+import { NavLink } from '../nav-link';
 
 export interface HeaderNavProps extends React.HTMLAttributes<HTMLElement> {}
 
 export function HeaderNav({ className, ...rest }: HeaderNavProps) {
-    const pathname = usePathname();
-
     return (
         <nav className={cn('hidden md:flex items-center gap-10 font-light', className)} {...rest}>
-            <Link href="/" className={cn({ underline: pathname === '/' })} prefetch>
+            <NavLink href="/" onMouseEnter={() => import('@/app/page')}>
                 HOME
-            </Link>
+            </NavLink>
 
-            <Link href="/fashion" className={cn({ underline: pathname === '/fashion' })} prefetch>
+            <NavLink href="/fashion" onMouseEnter={() => import('@/app/fashion/page')}>
                 FASHION
-            </Link>
+            </NavLink>
 
-            <Link href="/comercial" className={cn({ underline: pathname === '/comercial' })} prefetch>
+            <NavLink href="/comercial" onMouseEnter={() => import('@/app/comercial/page')}>
                 COMERCIAL
-            </Link>
+            </NavLink>
 
-            <Link href="/institutional" className={cn({ underline: pathname === '/institutional' })} prefetch>
+            <NavLink href="/institutional" onMouseEnter={() => import('@/app/institutional/page')}>
                 INSTITUCIONAL
-            </Link>
+            </NavLink>
 
-            <Link href="/bio" className={cn({ underline: pathname === '/bio' })} prefetch>
+            <NavLink href="/bio" onMouseEnter={() => import('@/app/bio/page')}>
                 SOBRE
-            </Link>
+            </NavLink>
 
             <a href={siteConfig.links.instagram} target="_blank" rel="noreferrer">
                 <Instagram className="h-4 w-4" />

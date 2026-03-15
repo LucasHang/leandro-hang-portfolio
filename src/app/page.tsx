@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { Header } from '@/components/header/header';
 import { LogoAnimated } from '@/components/home/logo-animated';
 import { getHomeInfo } from '@/lib/services/home';
 
@@ -40,6 +41,10 @@ export default async function Home() {
             <div className="absolute bottom-0 bg-gradient-to-t from-black to-transparent h-56 w-full hidden md:block" />
 
             <LogoAnimated />
+
+            <Header className="bg-transparent bottom-10 top-auto backdrop-blur-none hidden md:flex" />
+
+            <Header className="md:hidden" />
         </>
     );
 }

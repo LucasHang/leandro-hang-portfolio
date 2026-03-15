@@ -3,14 +3,19 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
 import FacebookPixel from '@/components/facebook-pixel';
-import { Footer } from '@/components/footer';
-import { Header } from '@/components/header/header';
-import { HeaderSpacer } from '@/components/header/header-spacer';
-import { PageTransition } from '@/components/page-transition';
 import { WhatsappButton } from '@/components/whatsapp-button';
 import { siteConfig } from '@/lib/config/site-config';
 
 import './globals.css';
+import { TransitionRouter } from '@/components/transition-router';
+import { PageStack } from '@/components/page-stack';
+import dynamic from 'next/dynamic';
+
+const HomePage = dynamic(() => import('./page'));
+const ComercialPage = dynamic(() => import('./comercial/page'));
+const InstitutionalPage = dynamic(() => import('./institutional/page'));
+const FashionPage = dynamic(() => import('./fashion/page'));
+const BioPage = dynamic(() => import('./bio/page'));
 
 const modernSans = localFont({
     src: [
@@ -87,17 +92,17 @@ export default function RootLayout({
             <GoogleTagManager gtmId="G-MC8M991ZJ8" />
 
             <body className={`${modernSans.className}`}>
-                <div className="flex flex-col w-full min-h-screen">
-                    <Header />
-
-                    <HeaderSpacer />
-
-                    <main className="relative min-h-screen w-full">
-                        <PageTransition>{children}</PageTransition>
-                    </main>
-
-                    <Footer />
-                </div>
+                <TransitionRouter>
+                    <PageStack
+                        pages={[
+                            { path: '/', element: <HomePage /> },
+                            { path: '/comercial', element: <ComercialPage /> },
+                            { path: '/fashion', element: <FashionPage /> },
+                            { path: '/institutional', element: <InstitutionalPage /> },
+                            { path: '/bio', element: <BioPage /> },
+                        ]}
+                    />
+                </TransitionRouter>
 
                 <WhatsappButton />
 
