@@ -1,6 +1,6 @@
 export const siteConfig = {
     name: 'Acourt Filmes',
-    description: 'Trabalhos e projetos audio-visual feitos pela produtora Acourt Filmes',
+    description: 'Produtora Audiovisual',
     url: 'https://acourtfilmes.com.br/',
     keywords: ['Audio-Visual', 'Vídeo', 'Edição', 'Designer', 'Comercial', 'Evento', 'Institucional'],
     links: {

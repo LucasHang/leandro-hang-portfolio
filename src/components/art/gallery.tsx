@@ -15,7 +15,7 @@ interface ArtsGalleryProps {
     showBackdropTitle?: boolean;
 }
 
-export function ArtsGallery({ arts, useLightBox, showBackdropTitle }: ArtsGalleryProps) {
+export function ArtsGallery({ arts, useLightBox, showBackdropTitle = true }: ArtsGalleryProps) {
     const [lightBoxController, setLightBoxController] = useState({
         toggler: false,
         slide: 1,
