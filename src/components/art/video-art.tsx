@@ -8,7 +8,7 @@ import { type ArtEntity } from '@/lib/types/art';
 import { cn } from '@/lib/utils';
 
 interface VideoArtProps extends RenderPhotoProps {
-    art: Pick<ArtEntity, 'youtubeUrl' | 'url' | 'blured' | 'name'>;
+    art: Pick<ArtEntity, 'youtubeUrl' | 'url' | 'blured' | 'name' | 'description'>;
     showBackdropTitle?: boolean;
 }
 

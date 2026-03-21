@@ -9,6 +9,7 @@ export async function getComercialArts(): Promise<ArtEntity[]> {
                 arts(where: {categories_contains_some: comercial}, orderBy: sequence_ASC) {
                     slug
                     name
+                    description
                     contents {
                         url
                         width

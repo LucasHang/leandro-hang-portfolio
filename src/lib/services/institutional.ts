@@ -9,6 +9,7 @@ export async function getInstitutionalArts(): Promise<ArtEntity[]> {
                 arts(where: {categories_contains_some: institutional}, orderBy: sequence_ASC) {
                     slug
                     name
+                    description
                     contents {
                         url
                         width

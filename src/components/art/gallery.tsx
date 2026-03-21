@@ -5,17 +5,19 @@ import { useState } from 'react';
 import PhotoAlbum from 'react-photo-album';
 
 import { ArtEntity } from '@/lib/types/art';
+import { generateArtsGallerySchema } from '@/lib/utils';
 
 import { ImageArt } from './image-art';
 import { VideoArt } from './video-art';
 
 interface ArtsGalleryProps {
     arts: ArtEntity[];
+    pageTitle: string;
     useLightBox?: boolean;
     showBackdropTitle?: boolean;
 }
 
-export function ArtsGallery({ arts, useLightBox, showBackdropTitle = true }: ArtsGalleryProps) {
+export function ArtsGallery({ arts, pageTitle, useLightBox, showBackdropTitle = true }: ArtsGalleryProps) {
     const [lightBoxController, setLightBoxController] = useState({
         toggler: false,
         slide: 1,
@@ -37,7 +39,7 @@ export function ArtsGallery({ arts, useLightBox, showBackdropTitle = true }: Art
                     width: a.width || a.blured?.width || 16,
                     height: a.height || a.blured?.height || 9,
                     key: a.slug,
-                    alt: a.name,
+                    alt: a.description || a.name,
                     blurDataURL: a.blured?.url || a.url,
                     // sizes: ['(min-width: 480px) 100vw,(min-width: 1024px) 50vw,100vw'],
                 }))}
@@ -66,7 +68,6 @@ export function ArtsGallery({ arts, useLightBox, showBackdropTitle = true }: Art
                     return <ImageArt art={respectiveArt} showBackdropTitle={showBackdropTitle} {...props} />;
                 }}
             />
-
             {useLightBox && (
                 <FsLightbox
                     toggler={lightBoxController.toggler}
@@ -74,6 +75,14 @@ export function ArtsGallery({ arts, useLightBox, showBackdropTitle = true }: Art
                     slide={lightBoxController.slide}
                 />
             )}
+
+            {/* ✅ SEO Schema */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(generateArtsGallerySchema(pageTitle, arts)),
+                }}
+            />
         </>
     );
 }

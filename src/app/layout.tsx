@@ -1,5 +1,5 @@
 import { GoogleTagManager } from '@next/third-parties/google';
-import type { Metadata } from 'next';
+import type { Metadata, ResolvingMetadata } from 'next';
 import dynamic from 'next/dynamic';
 import localFont from 'next/font/local';
 
@@ -8,14 +8,15 @@ import { PageStack } from '@/components/page-stack';
 import { TransitionRouter } from '@/components/transition-router';
 import { WhatsappButton } from '@/components/whatsapp-button';
 import { siteConfig } from '@/lib/config/site-config';
+import { getSEOPageData } from '@/lib/services/SEO-page';
 
 import './globals.css';
 
-const HomePage = dynamic(() => import('./page'));
-const ComercialPage = dynamic(() => import('./comercial/page'));
-const InstitutionalPage = dynamic(() => import('./institutional/page'));
-const FashionPage = dynamic(() => import('./fashion/page'));
-const BioPage = dynamic(() => import('./bio/page'));
+const HomePageContent = dynamic(() => import('@/components/pages/home'));
+const ComercialPageContent = dynamic(() => import('@/components/pages/comercial'));
+const InstitutionalPageContent = dynamic(() => import('@/components/pages/institutional'));
+const FashionPageContent = dynamic(() => import('@/components/pages/fashion'));
+const BioPageContent = dynamic(() => import('@/components/pages/bio'));
 
 const modernSans = localFont({
     src: [
@@ -53,34 +54,40 @@ const modernSans = localFont({
     display: 'swap',
 });
 
-export const metadata: Metadata = {
-    title: {
-        default: siteConfig.name,
-        template: `%s | ${siteConfig.name}`,
-    },
-    description: siteConfig.description,
-    keywords: siteConfig.keywords,
-    openGraph: {
-        title: siteConfig.name,
-        description: siteConfig.description,
-        siteName: siteConfig.name,
-        type: 'website',
-        locale: 'pt_BR',
-        url: siteConfig.url,
-        images: [
-            {
-                url: 'https://sa-east-1.graphassets.com/A9JzQr5c4QpGJkNhtk2MXz/cmmqtb17f0rmp07kfdaudlax5',
-                width: 1280,
-                height: 720,
-            },
-        ],
-    },
-    verification: {
-        other: {
-            ['facebook-domain-verification']: '6ze61pygf5i9bh6s4mq8oem8j8oove',
+export async function generateMetadata(_props: {}, parent: ResolvingMetadata): Promise<Metadata> {
+    const seo = await getSEOPageData('home');
+
+    return {
+        title: {
+            default: seo.title || siteConfig.name,
+            template: `%s | ${siteConfig.name}`,
         },
-    },
-};
+        description: seo.description || siteConfig.description,
+        keywords: siteConfig.keywords,
+        openGraph: {
+            title: seo.title || siteConfig.name,
+            description: seo.description || siteConfig.description,
+            siteName: siteConfig.name,
+            type: 'website',
+            locale: 'pt_BR',
+            url: siteConfig.url,
+            images: [
+                {
+                    url: 'https://sa-east-1.graphassets.com/A9JzQr5c4QpGJkNhtk2MXz/cmmqtb17f0rmp07kfdaudlax5',
+                    width: 1280,
+                    height: 720,
+                },
+            ],
+        },
+        verification: {
+            other: {
+                ['facebook-domain-verification']: '6ze61pygf5i9bh6s4mq8oem8j8oove',
+            },
+        },
+    };
+}
+
+export const revalidate = 3600; // revalidate at most every hour
 
 export default function RootLayout({
     children,
@@ -95,11 +102,11 @@ export default function RootLayout({
                 <TransitionRouter>
                     <PageStack
                         pages={[
-                            { path: '/', element: <HomePage /> },
-                            { path: '/comercial', element: <ComercialPage /> },
-                            { path: '/fashion', element: <FashionPage /> },
-                            { path: '/institutional', element: <InstitutionalPage /> },
-                            { path: '/bio', element: <BioPage /> },
+                            { path: '/', element: <HomePageContent /> },
+                            { path: '/comercial', element: <ComercialPageContent /> },
+                            { path: '/fashion', element: <FashionPageContent /> },
+                            { path: '/institutional', element: <InstitutionalPageContent /> },
+                            { path: '/bio', element: <BioPageContent /> },
                         ]}
                     />
                 </TransitionRouter>

@@ -1,6 +1,6 @@
 'use client';
 
-import { Menu, X } from 'lucide-react';
+import { Instagram, Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
@@ -72,13 +72,8 @@ function MenuNav({ isMenuOpen, setIsMenuOpen }: MenuNavProps) {
                     SOBRE
                 </NavLink>
 
-                <a
-                    href={`https://wa.me/${siteConfig.contact.phoneNumber.raw}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="self-center py-3 px-4 rounded-md bg-green-950 text-white font-bold text-sm"
-                >
-                    ORÇAMENTO
+                <a href={siteConfig.links.instagram} className="self-center" target="_blank" rel="noreferrer">
+                    <Instagram className="h-4 w-4" />
                 </a>
             </nav>
         </div>

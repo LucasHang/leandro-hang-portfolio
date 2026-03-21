@@ -1,6 +1,7 @@
 interface ArtData {
     slug: string;
     name: string;
+    description?: string;
     contents: {
         url: string;
         width: number;

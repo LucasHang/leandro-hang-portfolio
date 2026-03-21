@@ -4,7 +4,7 @@ import { RenderPhotoProps } from 'react-photo-album';
 import { ArtEntity } from '@/lib/types/art';
 
 interface ImageArtProps extends RenderPhotoProps {
-    art: Pick<ArtEntity, 'name'>;
+    art: Pick<ArtEntity, 'name' | 'description'>;
     showBackdropTitle?: boolean;
 }
 
