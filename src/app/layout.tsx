@@ -1,4 +1,4 @@
-import { GoogleTagManager } from '@next/third-parties/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata, ResolvingMetadata } from 'next';
 import dynamic from 'next/dynamic';
 import localFont from 'next/font/local';
@@ -96,7 +96,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="pt">
-            <GoogleTagManager gtmId="G-MC8M991ZJ8" />
+            <GoogleAnalytics gaId="G-MC8M991ZJ8" />
 
             <body className={`${modernSans.className}`}>
                 <TransitionRouter>
