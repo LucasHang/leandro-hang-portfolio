@@ -104,7 +104,6 @@ export default function RootLayout({
                         pages={[
                             { path: '/', element: <HomePageContent /> },
                             { path: '/comercial', element: <ComercialPageContent /> },
-                            { path: '/fashion', element: <FashionPageContent /> },
                             { path: '/institutional', element: <InstitutionalPageContent /> },
                             { path: '/bio', element: <BioPageContent /> },
                         ]}

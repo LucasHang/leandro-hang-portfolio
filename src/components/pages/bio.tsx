@@ -48,8 +48,8 @@ export default async function BioPageContent() {
                             </p>
                             <br />
                             <p className="max-w-5xl text-center">
-                                Atuando em filmes de moda, publicidade e institucional, seus filmes combinam
-                                precisão editorial com autenticidade emocional.
+                                Atuando em filmes publicitários e institucionais, seus filmes combinam precisão
+                                editorial com autenticidade emocional.
                             </p>
                             <br />
                             <br />

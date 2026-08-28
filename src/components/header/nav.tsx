@@ -16,10 +16,6 @@ export function HeaderNav({ className, ...rest }: HeaderNavProps) {
                 HOME
             </NavLink>
 
-            <NavLink href="/fashion" onMouseEnter={() => import('@/app/fashion/page')}>
-                FASHION
-            </NavLink>
-
             <NavLink href="/comercial" onMouseEnter={() => import('@/app/comercial/page')}>
                 COMERCIAL
             </NavLink>

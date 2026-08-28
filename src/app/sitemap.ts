@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = 'https://www.acourtfilmes.com.br';
-    const dynamicRoutes = ['/fashion', '/comercial', '/institutional', '/bio'];
+    const dynamicRoutes = ['/comercial', '/institutional', '/bio'];
 
     return [
         {

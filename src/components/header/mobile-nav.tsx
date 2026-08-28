@@ -56,10 +56,6 @@ function MenuNav({ isMenuOpen, setIsMenuOpen }: MenuNavProps) {
                     HOME
                 </NavLink>
 
-                <NavLink href="/fashion" onClick={() => setIsMenuOpen(false)}>
-                    FASHION
-                </NavLink>
-
                 <NavLink href="/comercial" onClick={() => setIsMenuOpen(false)}>
                     COMERCIAL
                 </NavLink>
