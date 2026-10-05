@@ -30,6 +30,7 @@ export function VideoArt({
                         src={photo}
                         placeholder={'blurDataURL' in photo && photo.blurDataURL ? 'blur' : undefined}
                         className={cn('cursor-pointer', className)}
+                        unoptimized
                         {...{ alt, title, sizes, onClick: () => setPlayVideo(true) }}
                     />
 

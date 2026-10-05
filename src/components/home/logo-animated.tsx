@@ -17,7 +17,7 @@ export function LogoAnimated() {
             }}
             className="absolute top-10 left-0 right-0 hidden md:flex justify-center"
         >
-            <Image src={logo} alt="Acourt Filmes Produtora" className="h-12 w-auto" />
+            <Image src={logo} alt="Acourt Filmes Produtora" className="h-12 w-auto" unoptimized />
         </motion.div>
     );
 }

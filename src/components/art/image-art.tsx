@@ -21,6 +21,7 @@ export function ImageArt({
                 fill
                 src={photo}
                 placeholder={'blurDataURL' in photo && photo.blurDataURL ? 'blur' : undefined}
+                unoptimized
                 {...{ alt, title, sizes, className, onClick }}
             />
 

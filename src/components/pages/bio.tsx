@@ -26,9 +26,15 @@ export default async function BioPageContent() {
                             alt="Bio Background"
                             fill
                             className="object-cover object-center -z-10"
+                            unoptimized
                         />
 
-                        <Image src={logo} alt="Acourt Filmes Produtora" className="md:h-24 h-14 w-auto" />
+                        <Image
+                            src={logo}
+                            alt="Acourt Filmes Produtora"
+                            className="md:h-24 h-14 w-auto"
+                            unoptimized
+                        />
 
                         <div className="flex flex-col items-center md:text-sm text-xs">
                             <p className="max-w-4xl text-center">

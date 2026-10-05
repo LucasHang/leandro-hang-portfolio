@@ -21,7 +21,7 @@ export function Header({ className }: HeaderProps) {
             )}
         >
             <NavLink href="/">
-                <Image src={logo} alt="Acourt Filmes Produtora" className="md:hidden h-10 w-auto" />
+                <Image src={logo} alt="Acourt Filmes Produtora" className="md:hidden h-10 w-auto" unoptimized />
             </NavLink>
 
             <div className="flex items-center md:gap-12 gap-8">

@@ -33,6 +33,7 @@ const InfiniteLogoCarousel = ({ logos }: InfiniteLogoCarouselProps) => {
                         width={logo.width || 120}
                         height={logo.height || 60}
                         className="object-contain max-h-28"
+                        unoptimized
                     />
                 </div>
             ))}

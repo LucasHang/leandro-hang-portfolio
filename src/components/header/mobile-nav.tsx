@@ -49,7 +49,7 @@ function MenuNav({ isMenuOpen, setIsMenuOpen }: MenuNavProps) {
 
             <nav className="flex flex-col gap-14 font-light">
                 <NavLink href="/" onClick={() => setIsMenuOpen(false)}>
-                    <Image src={logo} alt="Hang Leandro Produtora" className="h-10 w-auto" />
+                    <Image src={logo} alt="Hang Leandro Produtora" className="h-10 w-auto" unoptimized />
                 </NavLink>
 
                 <NavLink href="/" onClick={() => setIsMenuOpen(false)}>
